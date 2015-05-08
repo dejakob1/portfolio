@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Jakob Vanackere</title>
+<link href="css/layout.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="reset.css">
+<script type="text/javascript" src="js/modernizr-latest.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="../js-webshim/minified/extras/modernizr-custom.js"></script>
+	<script src="../js-webshim/minified/polyfiller.js"></script>
+	
+	
+	<!--
+		<script src="../../src/polyfiller.js"></script> 
+		<script>
+			webshims.setOptions('debug', 'noCombo');
+			//style calendar, datalist, validation bubble
+			//$('html').on('wspopoverbeforehide', false);
+		</script>
+	-->
+	<script>
+		$.webshims.setOptions('forms', { 
+			customMessages: true,
+			iVal: {fieldWrapper: '.form-element'}
+		});
+		
+		$.webshims.setOptions('forms-ext', { 
+			types: 'range date time number month color'
+		});
+		
+		//load all defined
+		//or load only a specific feature with $.webshims.polyfill('feature-name');
+		$.webshims.polyfill();
+		
+		
+		$(function(){
+			var showHideFormsExt = function(){
+				$('span.forms-ext-feature')[this.checked ? 'show' : 'hide']();
+			};
+			$('#show-forms-ext')
+				.each(showHideFormsExt)
+				.click(showHideFormsExt)
+			;
+			
+		});
+	</script>
+</head>
+
+<body>
+<div id="wrapper">
+	<header>
+	</header>
+<aside>
+	<a href="index.html"><img src="img/jakob_portrait.jpg"></a>
+	<h3>Jakob Vanackere</h3>
+	<nav>
+    <ul>
+		<li><a href="index.html">home</a></li>
+		<li><a href="info.html">info</a></li>
+		<li><a href="illustrations.html">illustrations</a></li>
+		<li><a href="graphicdesign.html">graphic design</a></li>
+		<li><a href="websites.html">websites</a></li>
+		<li><a href="contact.html"class="selected">contact</a></li>
+	</ul>
+    </nav>
+</aside>
+<div id="content">
+<div id="contactinfo">
+<h2>CONTACT</h2>
+<br>
+Jakob Vanackere<br>
+magdalenalei 49<br>
+2930 Brasschaat<br>
+Belgium<br>
+Tel: +32 486 69 17 49<br>
+</div>
+
+<form id="formulier" method="post" action="send.php">
+Message<br><br>
+<label>approaching:</label>
+<input name="aanspreektitel" type="radio" value="man" checked>Mr.
+<input name="aanspreektitel" type="radio" value="vrouw">Mrs.<br>
+<label>surname:<br></label><input name="voornaam" type="text" required /><br>
+<label>name:<br></label><input name="naam" type="text" required /><br>
+<label>email:<br></label><input name="email" type="email" required /><br>
+<label>message:<br></label>
+<textarea name="opmerkingen"></textarea><br>
+<input name="verzenden" type="submit" value="send">
+<input name="reset" type="reset" value="reset">
+</form>
+</div>
+
+<div id="footerinfo">
+<div id="copyright">
+jakob vanackere
+</div>
+</div>
+
+</div>
+
+
